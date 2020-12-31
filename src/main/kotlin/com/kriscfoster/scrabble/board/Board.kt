@@ -31,18 +31,36 @@ class Board {
     }
 
     private fun isTripleWordSpaceType(i: Int, j: Int): Boolean {
-        return i % 7 == 0 && j % 7 == 0
+        return i % 7 == 0 && j % 7 == 0 && !(i == 7 && j == 7)
     }
 
     private fun isDoubleWordSpaceType(i: Int, j: Int): Boolean {
+        if (
+                (i != 5) && (i !=6) && (i != 8) && (i != 9) &&
+                ((i + j == 14) || (i == j))
+        ) {
+            return true
+        }
+
         return false
     }
 
     private fun isTripleLetterSpaceType(i: Int, j: Int): Boolean {
+        if (i == 1 && ((j == 5) || j == 9)) {
+            return true
+        }
+
         return false
     }
 
     private fun isDoubleLetterSpaceType(i: Int, j: Int): Boolean {
+        if (
+                (i == 0 && ((j == 3) || j == 11)) ||
+                (i == 2 && ((j == 6) || j == 8))
+        ) {
+            return true
+        }
+
         return false
     }
 }
