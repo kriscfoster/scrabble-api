@@ -10,7 +10,7 @@ class IntelligenceController {
 
     @PostMapping
     fun calculateBestWord() {
-        // TODO: API endpoint takes a board & a list of letters & returns best move
+        // TODO: API endpoint takes a board & a list of letters & returns best board
     }
 
 }
