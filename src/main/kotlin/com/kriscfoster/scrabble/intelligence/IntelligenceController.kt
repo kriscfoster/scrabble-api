@@ -1,6 +1,8 @@
 package com.kriscfoster.scrabble.intelligence
 
+import com.kriscfoster.scrabble.board.Board
 import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -9,8 +11,9 @@ import org.springframework.web.bind.annotation.RestController
 class IntelligenceController {
 
     @PostMapping
-    fun calculateBestWord() {
-        // TODO: API endpoint takes a board & a list of letters & returns best board
+    fun calculateBestWord(@RequestBody intelligenceRequestBody: IntelligenceRequestBody): Board {
+        println(intelligenceRequestBody);
+        return intelligenceRequestBody.board;
     }
 
 }
