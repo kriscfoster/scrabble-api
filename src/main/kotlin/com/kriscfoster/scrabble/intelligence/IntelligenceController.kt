@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/intelligence")
-class IntelligenceController {
+class IntelligenceController(intelligenceService: IntelligenceService) {
+    val intelligenceService = intelligenceService
 
     @PostMapping
     fun calculateBestWord(@RequestBody intelligenceRequestBody: IntelligenceRequestBody): Board {
-        println(intelligenceRequestBody);
-        return intelligenceRequestBody.board;
+        return intelligenceService.getBoard(intelligenceRequestBody.board, intelligenceRequestBody.tray)
     }
 
 }
